@@ -9,10 +9,10 @@
 <body>
     <form id="form1" runat="server">
     <div>
-		<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Products/Category_1">Category_1</asp:HyperLink>
+		<asp:HyperLink ID="HyperLink1" runat="server">Category_1</asp:HyperLink>
     </div>
     <div>
-		<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Products/Category_2">Category_2</asp:HyperLink>
+		<asp:HyperLink ID="HyperLink2" runat="server">Category_2</asp:HyperLink>
     </div>
     </form>
 </body>
