@@ -9,7 +9,8 @@ using System.Web.Routing;
 /// </summary>
 public static class RouteCollectionExtensions
 {
-	public static void MapPageRoute (this RouteCollection routes, string name, string url, string target) {
-		routes.Add (name, new Route (url, new PageRouteHandler (target)));
-	}
+    public static void MapPageRoute(this RouteCollection routes, string name, string url, string target)
+    {
+        routes.Add(name, new Route(url, new PageRouteHandler(target)));
+    }
 }
