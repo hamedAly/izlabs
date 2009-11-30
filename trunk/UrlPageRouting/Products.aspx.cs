@@ -9,6 +9,6 @@ public partial class Products : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-		Label1.Text = (string)this.GetRouteData ().Values["category"];
+        Label1.Text = (string)this.GetRouteData().Values["category"];
     }
 }
