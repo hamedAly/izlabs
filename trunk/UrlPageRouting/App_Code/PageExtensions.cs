@@ -10,7 +10,18 @@ using System.Web.UI;
 /// </summary>
 public static class PageExtensions
 {
-	public static RouteData GetRouteData (this Page page) {
-		return (HttpContext.Current.Items [PageRouteHandler.RouteData] as RouteData) ?? new RouteData ();
-	}
+    public static RouteData GetRouteData(this Page page)
+    {
+        return (HttpContext.Current.Items[PageRouteHandler.RouteData] as RouteData) ?? new RouteData();
+    }
+
+    public static string GetRouteUrl(this Page page, string name, object values)
+    {
+        return GetRouteUrl(page, name, new RouteValueDictionary(values));
+    }
+
+    public static string GetRouteUrl(this Page page, string name, RouteValueDictionary values)
+    {
+        return RouteTable.Routes.GetVirtualPath(null, name, values).VirtualPath;
+    }
 }
