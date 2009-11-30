@@ -11,34 +11,37 @@ using System.Web.Compilation;
 /// </summary>
 public class PageRouteHandler : IRouteHandler, IHttpHandler
 {
-	private readonly string _virtualPath;
-	public static object RouteData = new object ();
+    private readonly string _virtualPath;
+    public static object RouteData = new object();
 
-	public PageRouteHandler(string virtualPath)
-	{
-		_virtualPath = virtualPath;
-	}
+    public PageRouteHandler(string virtualPath)
+    {
+        _virtualPath = virtualPath;
+    }
 
 
 
-	#region IRouteHandler Members
+    #region IRouteHandler Members
 
-	public IHttpHandler GetHttpHandler (RequestContext requestContext) {
-		HttpContext.Current.Items [RouteData] = requestContext.RouteData;
-		return this;
-	}
+    public IHttpHandler GetHttpHandler(RequestContext requestContext)
+    {
+        HttpContext.Current.Items[RouteData] = requestContext.RouteData;
+        return this;
+    }
 
-	#endregion
+    #endregion
 
-	#region IHttpHandler Members
+    #region IHttpHandler Members
 
-	public bool IsReusable {
-		get { return false; }
-	}
+    public bool IsReusable
+    {
+        get { return false; }
+    }
 
-	public void ProcessRequest (HttpContext context) {
-		context.Server.Transfer (_virtualPath, true);
-	}
+    public void ProcessRequest(HttpContext context)
+    {
+        context.Server.Transfer(_virtualPath, true);
+    }
 
-	#endregion
+    #endregion
 }
